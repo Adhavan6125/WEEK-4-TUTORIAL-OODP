@@ -1,0 +1,68 @@
+Here's the C++ implementation of a Library Book Management System using a Book class, featuring both a default and a parameterized constructor, all demonstrated without command-line inputs:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    int bookID;
+    string title;
+    string author;
+    double price;
+
+public:
+    // Default constructor
+    Book() {
+        bookID = 0;
+        title = "Unknown";
+        author = "Unknown";
+        price = 0.0;
+    }
+
+    // Parameterized constructor
+    Book(int id, string t, string a, double p) {
+        bookID = id;
+        title = t;
+        author = a;
+        price = p;
+    }
+
+    // Function to display book details
+    void displayBookInfo() {
+        cout << "Book ID: " << bookID << endl;
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Price: $" << price << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
+// Demonstration
+int main() {
+    // Using default constructor
+    Book defaultBook;
+
+    // Using parameterized constructors
+    Book book1(101, "1984", "George Orwell", 12.99);
+    Book book2(102, "To Kill a Mockingbird", "Harper Lee", 10.49);
+    Book book3(103, "The Great Gatsby", "F. Scott Fitzgerald", 8.75);
+
+    // Display book details
+    defaultBook.displayBookInfo();
+    book1.displayBookInfo();
+    book2.displayBookInfo();
+    book3.displayBookInfo();
+
+    return 0;
+}
+
+Explanation:
+
+Book has two constructors: a default constructor initializing unknown or zero values, and a parameterized constructor for custom initialization.
+
+displayBookInfo() prints the book's details.
+
+In main(), multiple Book objects are created with and without parameters, and their details are displayed.
+
+
