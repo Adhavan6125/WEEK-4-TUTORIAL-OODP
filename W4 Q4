@@ -1,0 +1,69 @@
+Here's the C++ code for an Employee Management System, including a parameterized constructor, a copy constructor, and a demonstration with multiple Employee objects — all done without command-line inputs:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+private:
+    int empID;
+    string name;
+    double salary;
+    string designation;
+
+public:
+    // Parameterized constructor
+    Employee(int id, string empName, double empSalary, string empDesignation) {
+        empID = id;
+        name = empName;
+        salary = empSalary;
+        designation = empDesignation;
+    }
+
+    // Copy constructor
+    Employee(const Employee &emp) {
+        empID = emp.empID;
+        name = emp.name;
+        salary = emp.salary;
+        designation = emp.designation;
+    }
+
+    // Function to display employee details
+    void displayDetails() {
+        cout << "Employee ID: " << empID << endl;
+        cout << "Name: " << name << endl;
+        cout << "Salary: $" << salary << endl;
+        cout << "Designation: " << designation << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
+// Demonstration
+int main() {
+    // Creating employee using parameterized constructor
+    Employee E1(1001, "Alice Johnson", 55000.0, "Software Engineer");
+
+    // Creating a copy of E1 using copy constructor
+    Employee E2 = E1;
+
+    // Display details of both employees
+    cout << "Details of Employee E1:" << endl;
+    E1.displayDetails();
+
+    cout << "Details of Employee E2 (Copy of E1):" << endl;
+    E2.displayDetails();
+
+    return 0;
+}
+
+Explanation:
+
+E1 is created using the parameterized constructor.
+
+E2 is created using the copy constructor, making it an exact duplicate of E1.
+
+Both objects display their details independently.
+
+No input is required — everything is demonstrated programmatically.
+
+
