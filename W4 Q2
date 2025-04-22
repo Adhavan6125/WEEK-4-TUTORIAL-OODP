@@ -1,0 +1,87 @@
+Here is the C++ code for an Online Shopping System with a Product class. It includes a default and parameterized constructor, a total price calculator, a destructor, and a demonstration using multiple product objects—all done without command-line inputs:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Product {
+private:
+    int productID;
+    string productName;
+    double price;
+    int quantity;
+
+public:
+    // Default constructor
+    Product() {
+        productID = 0;
+        productName = "Unnamed";
+        price = 0.0;
+        quantity = 0;
+    }
+
+    // Parameterized constructor
+    Product(int id, string name, double pr, int qty) {
+        productID = id;
+        productName = name;
+        price = pr;
+        quantity = qty;
+    }
+
+    // Function to calculate total price
+    double calculateTotalPrice() {
+        return price * quantity;
+    }
+
+    // Function to display product details
+    void displayProductDetails() {
+        cout << "Product ID: " << productID << endl;
+        cout << "Product Name: " << productName << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Quantity: " << quantity << endl;
+        cout << "Total Price: $" << calculateTotalPrice() << endl;
+        cout << "-----------------------------" << endl;
+    }
+
+    // Destructor
+    ~Product() {
+        cout << "Product [" << productName << "] is removed from memory." << endl;
+    }
+};
+
+// Function to display all products in the cart
+void displayCart(Product products[], int size) {
+    cout << "Cart Contents:\n";
+    for (int i = 0; i < size; i++) {
+        products[i].displayProductDetails();
+    }
+}
+
+// Demonstration
+int main() {
+    // Create an array of Product objects
+    Product cart[3] = {
+        Product(1, "Smartphone", 499.99, 2),
+        Product(2, "Headphones", 79.95, 1),
+        Product(3, "Charger", 19.99, 3)
+    };
+
+    // Display all products in the cart
+    displayCart(cart, 3);
+
+    return 0;
+}
+
+Explanation:
+
+The default constructor assigns default placeholder values.
+
+The parameterized constructor sets real product data.
+
+The destructor outputs a message when a Product object goes out of scope.
+
+displayCart() prints all items in the array of product objects.
+
+
+When the program ends, destructors automatically run, displaying messages that the products are being removed from memory.
+
